@@ -1,8 +1,12 @@
-export default (state = {}, action) => {
+const initialState = {
+  title: 'Man'
+}
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'SIMPLE_ACTION':
       return {
-        result: action.payload
+        title: action.payload
       }
     default:
       return state;
