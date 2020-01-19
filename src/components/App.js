@@ -28,9 +28,6 @@ class App extends Component {
     const reposClass = cx('repo-list', {
       'repo-selected': !!this.props.activeRepo
     })
-    const issuesClass = cx('issue-list', {
-      'repo-selected': !!this.props.activeRepo
-    })
 
     return (
       <div className="app">
@@ -41,9 +38,7 @@ class App extends Component {
             : <EmptyList />
           }
         </div>
-        <div className={issuesClass}>
-          <IssueList issues={this.props.issues} />
-        </div>
+        <IssueList active={!!this.props.activeRepo} issues={this.props.issues} />
       </div>
     );
   }
