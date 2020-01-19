@@ -3,7 +3,6 @@ import { GITHUB_KEY } from '../GITHUB_KEY';
 
 class GitHubClient {
   constructor() {
-    console.log('~= CREATING NEW INSTANCE')
     this.session = axios.create({
       baseURL: 'https://api.github.com/',
       timeout: 5000,
@@ -19,7 +18,6 @@ class GitHubClient {
   }
 
   static get instance() {
-    console.log('~= GETTER')
     if (!this.session) {
       this.session = new GitHubClient();
     }

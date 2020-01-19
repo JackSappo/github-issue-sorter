@@ -19,5 +19,4 @@ export function IssueList (props) {
     </div>
     
   )
-  return 
 }

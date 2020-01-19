@@ -13,15 +13,11 @@ class App extends Component {
     this.props.getRepos();
   }
 
-  componentWillReceiveProps(newProps) {
-    if (this.props.activeRepo !== newProps.activeRepo) {
-      console.log('~= REPO ID CHANGED', newProps.activeRepo)
-      this.props.getIssues(newProps.activeRepo)
+  componentDidUpdate(prevProps) {
+    if (prevProps.activeRepo !== this.props.activeRepo) {
+      console.log('~= REPO ID CHANGED', this.props.activeRepo)
+      this.props.getIssues(this.props.activeRepo)
     }
-  }
-
-  callSimpleAction = () => {
-    this.props.simpleAction()
   }
 
   render() {
