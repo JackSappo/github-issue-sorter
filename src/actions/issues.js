@@ -6,7 +6,16 @@ export const getIssues = (activeRepo) => dispatch => {
     .then(res => {
       dispatch({
         type: 'GET_ISSUES',
-        payload: res.data
+        payload: parseIssues(res.data)
       })
     })
+ }
+ 
+function parseIssues(issueData) {
+   return issueData.map(issue => ({
+    avatarUrl: issue.user.avatar_url,
+    title: issue.title,
+    created: issue.created_at,
+    lastUpdated: issue.updated_at
+   }))
  }

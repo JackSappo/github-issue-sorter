@@ -17,3 +17,9 @@ export const getRepos = () => dispatch => {
      payload: repoName
    })
  }
+
+//  function parseRepos(repoData) {
+//    return repoData.map(repo => ({
+
+//    }))
+//  }

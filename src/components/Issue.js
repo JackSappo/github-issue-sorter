@@ -7,9 +7,13 @@ export function Issue (props) {
         <i className="fas fa-grip-horizontal"></i>
       </div>
       <div className="issue-avatar">
-        <img src={props.issue.user && props.issue.user.avatar_url} />
+        <img src={props.issue.avatarUrl} />
       </div>
-      {props.issue.title}
+      <div className="issue-details">
+        <div className="issue-detail">{props.issue.title}</div>
+        <div className="issue-detail">Created: {props.issue.created}</div>
+        <div className="issue-detail">Last Updated: {props.issue.lastUpdated}</div>
+      </div>
     </div>
   )
 }
