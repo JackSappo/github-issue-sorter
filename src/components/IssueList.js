@@ -2,5 +2,8 @@ import React from 'react';
 import { Issue } from './Issue'
 
 export function IssueList (props) {
-  return props.issues.map(issue => <Issue issue={issue} />)
+  if (!props.issues.length) {
+    return <div>No issues found!</div>
+  }
+  return props.issues.map((issue, i) => <Issue issue={issue} key={i}/>)
 }

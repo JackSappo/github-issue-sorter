@@ -10,8 +10,10 @@
 .app .issue-list {
   background-color: #ccc;
   flex: 0;
+  width: 0;
 }
 
 .app .issue-list.repo-selected {
   flex: 2;
+  width: auto;
 }

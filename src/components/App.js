@@ -15,8 +15,8 @@ class App extends Component {
 
   componentWillReceiveProps(newProps) {
     if (this.props.activeRepo !== newProps.activeRepo) {
-      console.log('~= REPO ID CHANGED')
-      this.props.getIssues()
+      console.log('~= REPO ID CHANGED', newProps.activeRepo)
+      this.props.getIssues(newProps.activeRepo)
     }
   }
 
@@ -59,7 +59,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getRepos: () => dispatch(getRepos()),
-  getIssues: () => dispatch(getIssues())
+  getIssues: (...args) => dispatch(getIssues(...args))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setActiveRepo } from '../actions/repos'
 
 function Repo(props) {
-  const onClick = () => { props.setActiveRepo(props.repo.id) }
+  const onClick = () => { props.setActiveRepo(props.repo.name) }
   
   return (
     <div onClick={onClick}>
@@ -13,7 +13,7 @@ function Repo(props) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  setActiveRepo: (repoId) => dispatch(setActiveRepo(repoId))
+  setActiveRepo: (repoName) => dispatch(setActiveRepo(repoName))
 })
 
 export default connect(null, mapDispatchToProps)(Repo);

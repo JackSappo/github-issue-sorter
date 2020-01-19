@@ -1,8 +1,8 @@
 import ghClient from '../clients/githubClient';
 
-export const getIssues = () => dispatch => {
-  console.log('~= GETTING ISSUES')
-  return ghClient.getIssues()
+export const getIssues = (activeRepo) => dispatch => {
+  console.log('~= ACTIVEREPO', activeRepo)
+  return ghClient.getIssues(activeRepo)
     .then(res => {
       dispatch({
         type: 'GET_ISSUES',
