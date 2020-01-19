@@ -7,6 +7,14 @@
   flex: 1;
 }
 
+.app .repo {
+  cursor: pointer;
+}
+
+.app .repo:hover {
+  color: blue;
+}
+
 .app .issue-list {
   background-color: #ccc;
   flex: 0;
