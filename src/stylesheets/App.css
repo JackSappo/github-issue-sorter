@@ -2,26 +2,61 @@
   display: flex;
 }
 
-.app .repo-list {
+
+/*  Repos */
+.repo-list {
   background-color: #dedede;
   flex: 1;
 }
 
-.app .repo {
+.repo {
+  border-bottom: 1px solid #aaa;
+  padding: 5px;
+}
+
+.repo-name {
   cursor: pointer;
 }
 
-.app .repo:hover {
+.repo-name:hover {
   color: blue;
 }
 
-.app .issue-list {
+.repo-detail {
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+
+/* Issues */
+.issue-list {
   background-color: #ccc;
   flex: 0;
   width: 0;
 }
 
-.app .issue-list.repo-selected {
+.issue-list.repo-selected {
   flex: 2;
   width: auto;
+}
+
+.issue {
+  height: 44px;
+  display: flex;
+}
+
+.issue > .issue-dragger {
+  margin: auto 0px;
+  padding: 0 8px;
+  font-size: 16px;
+}
+
+.issue > .issue-avatar {
+  height: 40px;
+  width: 40px;
+}
+
+.issue > .issue-avatar img {
+  max-height: 100%;
+  max-width: 100%;
 }
