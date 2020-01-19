@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 
 import '../stylesheets/App.css';
 import { getRepos } from '../actions/repos';
@@ -23,8 +24,12 @@ class App extends Component {
   }
 
   render() {
-    const reposClass = 'repo-list'
-    const issuesClass = 'issue-list'
+    const reposClass = cx('repo-list', {
+      'repo-selected': !!this.props.activeRepo
+    })
+    const issuesClass = cx('issue-list', {
+      'repo-selected': !!this.props.activeRepo
+    })
 
     return (
       <div className="app">

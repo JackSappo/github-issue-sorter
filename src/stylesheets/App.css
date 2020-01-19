@@ -12,6 +12,6 @@
   flex: 0;
 }
 
-.app .issue-list.active {
+.app .issue-list.repo-selected {
   flex: 2;
 }
