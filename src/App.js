@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 import './App.css';
 import { simpleAction } from './actions/simpleAction';
-
-import { GITHUB_KEY } from './GITHUB_KEY';
+import githubClient from './clients/githubClient'
 
 class App extends Component {
   constructor() {
     super();
 
-    this.ghClient = axios.create({
-      baseURL: 'https://api.github.com/',
-      timeout: 5000,
-      headers: {
-        Accept: 'application/vnd.github.v3+json',
-        Authorization: `token ${GITHUB_KEY}`
-      }
-    })
+    // TEMP
+    this.ghClient = githubClient;
 
     this.state = {
       repos: []
