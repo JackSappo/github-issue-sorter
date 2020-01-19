@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import '../stylesheets/App.css';
-import { simpleAction } from '../actions/simpleAction';
 import { getRepos } from '../actions/getRepos';
 
 class App extends Component {
@@ -15,15 +14,8 @@ class App extends Component {
   }
 
   render() {
-    const { title } = this.props.simpleReducer
-
     return (
       <div className="App">
-        Sup My {title}
-        <br/>
-        <button onClick={this.callSimpleAction}>
-          Promotion
-        </button>
         {
           this.props.repos.length
             ? <RepoList repos={this.props.repos} />
@@ -59,7 +51,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction()),
   getRepos: () => dispatch(getRepos())
 })
 
