@@ -1,3 +1,4 @@
+import moment from 'moment';
 import ghClient from '../clients/githubClient';
 
 export const getIssues = (activeRepo) => dispatch => {
@@ -15,7 +16,7 @@ function parseIssues(issueData) {
    return issueData.map(issue => ({
     avatarUrl: issue.user.avatar_url,
     title: issue.title,
-    created: issue.created_at,
-    lastUpdated: issue.updated_at
+    created: moment(issue.created_at).format('DD/MM/YYYY'),
+    lastUpdated: moment(issue.updated_at).fromNow()
    }))
  }
