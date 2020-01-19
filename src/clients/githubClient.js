@@ -27,7 +27,9 @@ class GitHubClient {
     return this.session;
   }
 
-  get = (...params) => this.session.get(...params)
+  getRepos = () => this.session.get('/user/repos');
+  // TODO
+  getIssues = (repoId) => this.session.get()
 }
 
 export default GitHubClient.instance;

@@ -3,25 +3,11 @@ import { connect } from 'react-redux';
 
 import './App.css';
 import { simpleAction } from './actions/simpleAction';
-import githubClient from './clients/githubClient'
+import { getRepos } from './actions/getRepos';
 
 class App extends Component {
-  constructor() {
-    super();
-
-    // TEMP
-    this.ghClient = githubClient;
-
-    this.state = {
-      repos: []
-    }
-  }
-
   componentDidMount() {
-    this.ghClient.get('/user/repos')
-      .then(res => {
-        this.setState({ repos: res.data })
-      })
+    this.props.getRepos();
   }
 
   callSimpleAction = () => {
@@ -39,9 +25,9 @@ class App extends Component {
           Promotion
         </button>
         {
-          this.state.repos.length
-          ? <RepoList repos={this.state.repos} />
-          : <EmptyList />
+          this.props.repos.length
+            ? <RepoList repos={this.props.repos} />
+            : <EmptyList />
         }
       </div>
     );
@@ -73,7 +59,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
+  simpleAction: () => dispatch(simpleAction()),
+  getRepos: () => dispatch(getRepos())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
