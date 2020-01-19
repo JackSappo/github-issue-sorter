@@ -1,2 +1,17 @@
-.App {
+.app {
+  display: flex;
+}
+
+.app .repo-list {
+  background-color: #dedede;
+  flex: 1;
+}
+
+.app .issue-list {
+  background-color: #ccc;
+  flex: 0;
+}
+
+.app .issue-list.active {
+  flex: 2;
 }

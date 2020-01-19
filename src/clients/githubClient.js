@@ -29,7 +29,7 @@ class GitHubClient {
 
   getRepos = () => this.session.get('/user/repos');
   // TODO
-  getIssues = (repoId) => this.session.get()
+  getIssues = (repoId) => this.session.get(`/repos/jacksappo/garbo/issues`)
 }
 
 export default GitHubClient.instance;

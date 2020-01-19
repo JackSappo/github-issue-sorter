@@ -2,11 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import '../stylesheets/App.css';
-import { getRepos } from '../actions/getRepos';
+import { getRepos } from '../actions/repos';
+import { getIssues } from '../actions/issues';
+import { RepoList } from './RepoList'
 
 class App extends Component {
   componentDidMount() {
     this.props.getRepos();
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.activeRepo !== newProps.activeRepo) {
+      console.log('~= REPO ID CHANGED')
+      this.props.getIssues()
+    }
   }
 
   callSimpleAction = () => {
@@ -14,36 +23,26 @@ class App extends Component {
   }
 
   render() {
+    const reposClass = 'repo-list'
+    const issuesClass = 'issue-list'
+
     return (
-      <div className="App">
-        {
-          this.props.repos.length
+      <div className="app">
+        <div className={reposClass}>
+          {
+            this.props.repos.length
             ? <RepoList repos={this.props.repos} />
             : <EmptyList />
-        }
+          }
+        </div>
+        <div className={issuesClass}></div>
       </div>
     );
   }
 }
 
-function EmptyList(props) {
+function EmptyList() {
   return <div>Loading...</div>
-}
-
-function RepoList(props) {
-  return (
-    <div>
-      {props.repos.map((repo, i) => <Repo repo={repo} key={i}/>)}
-    </div>
-  )
-}
-
-function Repo(props) {
-  return (
-    <div>
-      {props.repo.name}
-    </div>
-  )
 }
 
 const mapStateToProps = state => ({
@@ -51,7 +50,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getRepos: () => dispatch(getRepos())
+  getRepos: () => dispatch(getRepos()),
+  getIssues: () => dispatch(getIssues())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

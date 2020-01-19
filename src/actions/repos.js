@@ -9,3 +9,11 @@ export const getRepos = () => dispatch => {
       })
     })
  }
+
+ export const setActiveRepo = (repoId) => dispatch => {
+   console.log('~= SETTING')
+   dispatch({
+     type: 'SET_ACTIVE_REPO',
+     payload: repoId
+   })
+ }
