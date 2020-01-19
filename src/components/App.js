@@ -6,6 +6,7 @@ import '../stylesheets/App.css';
 import { getRepos } from '../actions/repos';
 import { getIssues } from '../actions/issues';
 import { RepoList } from './RepoList'
+import { IssueList } from './IssueList'
 
 class App extends Component {
   componentDidMount() {
@@ -40,7 +41,9 @@ class App extends Component {
             : <EmptyList />
           }
         </div>
-        <div className={issuesClass}></div>
+        <div className={issuesClass}>
+          <IssueList issues={this.props.issues} />
+        </div>
       </div>
     );
   }
