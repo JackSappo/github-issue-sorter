@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './App.css';
-import { simpleAction } from './actions/simpleAction';
-import { getRepos } from './actions/getRepos';
+import '../stylesheets/App.css';
+import { simpleAction } from '../actions/simpleAction';
+import { getRepos } from '../actions/getRepos';
 
 class App extends Component {
   componentDidMount() {
