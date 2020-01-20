@@ -5,6 +5,7 @@ import cx from 'classnames';
 import '../stylesheets/App.css';
 import { getRepos } from '../actions/repos';
 import { getIssues } from '../actions/issues';
+import { Header } from './Header';
 import { RepoList } from './RepoList'
 import { IssueList } from './IssueList'
 
@@ -27,6 +28,7 @@ class App extends Component {
 
     return (
       <div className="app">
+        <Header />
         <div className="main-container">
           <div className={reposClass}>
             {

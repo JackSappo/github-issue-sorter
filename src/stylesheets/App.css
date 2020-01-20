@@ -10,11 +10,28 @@
   left: 20px;
 }
 
+.header {
+  border-radius: 8px 8px 0 0;
+  background-color: #111;
+  /* height: 40px; */
+  display: flex;
+  justify-content: flex-end;
+  padding: 6px;
+}
+
+.repo-fetcher {
+  float: right;
+}
+
+.repo-fetcher input {
+  margin-right: 5px;
+}
+
 .main-container {
   height: 100%;
   display: flex;
   background-color: #cef;
-  border-radius: 8px;
+  border-radius: 0 0 8px 8px;
   /* margin: 20px; */
   /* background-color: white; */
 }
