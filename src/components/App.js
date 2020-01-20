@@ -27,14 +27,16 @@ class App extends Component {
 
     return (
       <div className="app">
-        <div className={reposClass}>
-          {
-            this.props.repos.length
-            ? <RepoList repos={this.props.repos} />
-            : <EmptyList />
-          }
+        <div className="main-container">
+          <div className={reposClass}>
+            {
+              this.props.repos.length
+              ? <RepoList repos={this.props.repos} />
+              : <EmptyList />
+            }
+          </div>
+          <IssueList active={!!this.props.activeRepo} issues={this.props.issues} />
         </div>
-        <IssueList active={!!this.props.activeRepo} issues={this.props.issues} />
       </div>
     );
   }

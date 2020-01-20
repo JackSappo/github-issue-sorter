@@ -1,12 +1,22 @@
 .app {
+  /* display: flex; */
+  background-color: #dedede;
+  padding: 20px;
+}
+
+.main-container {
   display: flex;
+  /* margin: 20px; */
+  /* background-color: white; */
 }
 
 
 /*  Repos */
 .repo-list {
-  background-color: #dedede;
+  /* background-color: #dedede; */
   flex: 1;
+  background-color: white;
+  border-radius: 8px;
 }
 
 .repo {
@@ -30,14 +40,16 @@
 
 /* Issues */
 .issue-list {
-  background-color: #ccc;
-  flex: 0;
-  width: 0;
+  /* background-color: #ccc; */
+  flex: 2;
+  /* width: 0; */
+  display: none;
 }
 
 .issue-list.repo-selected {
-  flex: 2;
-  width: auto;
+  display: block;
+  /* flex: 2;
+  width: auto; */
 }
 
 .issue-list.repo-selected .issue-closer {
