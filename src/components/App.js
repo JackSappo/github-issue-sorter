@@ -3,21 +3,16 @@ import { connect } from 'react-redux';
 import cx from 'classnames';
 
 import '../stylesheets/App.css';
-import { getRepos } from '../actions/repos';
 import { getIssues } from '../actions/issues';
 import Header from './Header';
 import { RepoList } from './RepoList'
 import { IssueList } from './IssueList'
 
 class App extends Component {
-  componentDidMount() {
-    // this.props.getRepos();
-  }
-
   componentDidUpdate(prevProps) {
     if (prevProps.activeRepo !== this.props.activeRepo) {
-      console.log('~= REPO ID CHANGED', this.props.activeRepo)
-      this.props.getIssues(this.props.activeRepo)
+      console.log('~= REPO ID CHANGED', this.props.userName, this.props.activeRepo)
+      this.props.getIssues(this.props.userName, this.props.activeRepo)
     }
   }
 

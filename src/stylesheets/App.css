@@ -24,6 +24,11 @@
   color: white;
 }
 
+.header-username {
+  margin-right: auto;
+  color: white;
+}
+
 .repo-fetcher {
   float: right;
 }

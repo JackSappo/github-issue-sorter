@@ -21,10 +21,15 @@ class Header extends Component {
   }
   
   render() {
+    const { userName } = this.props;
+
     return (
       <div className="header">
         <div className="header-title">
           Github Issue Sorter
+        </div>
+        <div className="header-username">
+          {userName ? `Username: ${userName}` : ''}
         </div>
         <div className="repo-fetcher">
           <input placeholder="Github Token" onChange={this.onChange}/>
@@ -35,8 +40,12 @@ class Header extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  userName: state.userName
+})
+
 const mapDispatchToProps = dispatch => ({
   getRepos: (...args) => dispatch(getRepos(...args))
 })
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

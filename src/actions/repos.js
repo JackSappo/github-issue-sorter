@@ -6,11 +6,15 @@ export const getRepos = (ghToken) => dispatch => {
     ghClient.setToken(ghToken);
   }
 
-  return ghClient.getRepos()
-    .then(res => {
+  return Promise.all([ghClient.getRepos(), ghClient.getUser()])
+  // return ghClient.getRepos()
+    .then(([repoRes, userRes]) => {
+      console.log('~= REPORES IS', repoRes)
+      console.log('~= USERRES IS', userRes)
       dispatch({
         type: 'GET_REPOS',
-        payload: res.data
+        payload: repoRes.data,
+        userInfo: userRes.data
       })
     })
  }

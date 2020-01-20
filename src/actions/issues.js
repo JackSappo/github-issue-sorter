@@ -1,8 +1,8 @@
 import moment from 'moment';
 import ghClient from '../clients/githubClient';
 
-export const getIssues = (activeRepo) => dispatch => {
-  return ghClient.getIssues(activeRepo)
+export const getIssues = (user, repo) => dispatch => {
+  return ghClient.getIssues(user, repo)
     .then(res => {
       dispatch({
         type: 'GET_ISSUES',

@@ -21,13 +21,14 @@ class GitHubClient {
     return this.session;
   }
 
+  
   setToken(token) {
     this.session.defaults.headers.Authorization = `token ${token}`;
   }
-
+  
+  getUser = () => this.session.get('/user')
   getRepos = () => this.session.get('/user/repos');
-  // TODO: username
-  getIssues = (repo) => this.session.get(`/repos/jacksappo/${repo}/issues`)
+  getIssues = (user, repo) => this.session.get(`/repos/${user}/${repo}/issues`)
 }
 
 export default GitHubClient.instance;
