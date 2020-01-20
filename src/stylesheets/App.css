@@ -24,7 +24,7 @@
 .repo {
   position: relative;
   border-bottom: 1px solid #aaa;
-  padding: 5px;
+  padding: 3px 5px 4px;
 }
 
 .repo.active {
@@ -76,8 +76,9 @@
 }
 
 .issue {
-  height: 44px;
+  height: 40px;
   display: flex;
+  border-bottom: 1px solid #aaa;
 }
 
 .issue > .issue-dragger {
@@ -96,6 +97,18 @@
   max-width: 100%;
 }
 
-.issue .issue-detail {
-  font-size: 11px;
+.issue .issue-title {
+  font-size: 18px;
+  margin: auto 0;
+}
+
+.issue .issue-detail.title {
+  font-size: 18px;
+}
+
+.issue .issue-details {
+  margin: auto;
+  margin-right: 46px;
+  font-size: 12px;
+  padding-right: 10px;
 }

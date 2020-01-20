@@ -9,8 +9,8 @@ export function Issue (props) {
       <div className="issue-avatar">
         <img src={props.issue.avatarUrl} alt="User Avatar"/>
       </div>
+      <div className="issue-title">{props.issue.title}</div>
       <div className="issue-details">
-        <div className="issue-detail">{props.issue.title}</div>
         <div className="issue-detail">Created: {props.issue.created}</div>
         <div className="issue-detail">Last Updated: {props.issue.lastUpdated}</div>
       </div>

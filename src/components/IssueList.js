@@ -10,7 +10,7 @@ export function IssueList (props) {
   })
   return (
     <div className={issuesClass}>
-      <IssueCloser />
+      {/* <IssueCloser /> */}
       {
         props.issues.length
           ? props.issues.map((issue, i) => <Issue issue={issue} key={i}/>)
