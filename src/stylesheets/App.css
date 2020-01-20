@@ -6,6 +6,8 @@
 
 .main-container {
   display: flex;
+  background-color: #cef;
+  border-radius: 8px;
   /* margin: 20px; */
   /* background-color: white; */
 }
@@ -20,8 +22,13 @@
 }
 
 .repo {
+  position: relative;
   border-bottom: 1px solid #aaa;
   padding: 5px;
+}
+
+.repo.active {
+  background-color: #cef;
 }
 
 .repo-name {
@@ -37,6 +44,13 @@
   font-size: 12px;
 }
 
+.active-repo-indicator {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  pointer-events: none;
+}
+
 
 /* Issues */
 .issue-list {
@@ -44,6 +58,7 @@
   flex: 2;
   /* width: 0; */
   display: none;
+  position: relative;
 }
 
 .issue-list.repo-selected {
