@@ -13,13 +13,15 @@ function Repo(props) {
 
   return (
     <div className={repoClass} onClick={onClick}>
-      <div className="repo-name">
-        {props.repo.name}
+      <div className="repo-details">
+        <div className="repo-name">
+          {props.repo.name}
+        </div>
+        <div className="repo-detail">
+          Open Issues: {props.repo.open_issues}
+        </div>
+        {/* {isActiveRepo ? <ActiveRepoIndicator /> : null} */}
       </div>
-      <div className="repo-detail">
-        Open Issues: {props.repo.open_issues}
-      </div>
-      {/* {isActiveRepo ? <ActiveRepoIndicator /> : null} */}
     </div>
   )
 }
