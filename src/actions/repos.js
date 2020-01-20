@@ -1,6 +1,11 @@
 import ghClient from '../clients/githubClient';
 
-export const getRepos = () => dispatch => {
+export const getRepos = (ghToken) => dispatch => {
+  console.log('~= GHTOKEN IS', ghToken)
+  if (ghToken) {
+    ghClient.setToken(ghToken);
+  }
+
   return ghClient.getRepos()
     .then(res => {
       dispatch({

@@ -5,13 +5,13 @@ import cx from 'classnames';
 import '../stylesheets/App.css';
 import { getRepos } from '../actions/repos';
 import { getIssues } from '../actions/issues';
-import { Header } from './Header';
+import Header from './Header';
 import { RepoList } from './RepoList'
 import { IssueList } from './IssueList'
 
 class App extends Component {
   componentDidMount() {
-    this.props.getRepos();
+    // this.props.getRepos();
   }
 
   componentDidUpdate(prevProps) {
@@ -53,7 +53,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getRepos: () => dispatch(getRepos()),
+  // getRepos: () => dispatch(getRepos()),
   getIssues: (...args) => dispatch(getIssues(...args))
 })
 

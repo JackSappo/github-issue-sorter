@@ -13,16 +13,16 @@ class GitHubClient {
     })
   }
 
-  static setKey(token) {
-    this.session.defaults.headers.Authorization = `token ${token}`;
-  }
-
   static get instance() {
     if (!this.session) {
       this.session = new GitHubClient();
     }
 
     return this.session;
+  }
+
+  setToken(token) {
+    this.session.defaults.headers.Authorization = `token ${token}`;
   }
 
   getRepos = () => this.session.get('/user/repos');
