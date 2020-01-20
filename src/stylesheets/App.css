@@ -37,6 +37,10 @@
 
 .repo.active {
   background-color: #cef;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
 }
 
 .repo-name {
