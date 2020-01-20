@@ -11,8 +11,12 @@ export function Issue (props) {
       </div>
       <div className="issue-title">{props.issue.title}</div>
       <div className="issue-details">
-        <div className="issue-detail">Created: {props.issue.created}</div>
-        <div className="issue-detail">Last Updated: {props.issue.lastUpdated}</div>
+        <div className="issue-detail">
+          <b>Created:</b> {props.issue.created}
+        </div>
+        <div className="issue-detail">
+          <b>Last Updated:</b> {props.issue.lastUpdated}
+        </div>
       </div>
     </div>
   )

@@ -102,13 +102,20 @@
   margin: auto 0;
 }
 
-.issue .issue-detail.title {
-  font-size: 18px;
-}
-
 .issue .issue-details {
   margin: auto;
   margin-right: 46px;
   font-size: 12px;
   padding-right: 10px;
+  width: 160px;
+}
+
+.issue .issue-detail.title {
+  font-size: 18px;
+}
+
+.issue .issue-detail {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
