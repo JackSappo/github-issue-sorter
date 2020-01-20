@@ -1,10 +1,17 @@
 .app {
   /* display: flex; */
-  background-color: #dedede;
-  padding: 20px;
+  /* height: 100vh; */
+  /* background-color: #dedede; */
+  /* padding: 20px; */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
 }
 
 .main-container {
+  height: 100%;
   display: flex;
   background-color: #cef;
   border-radius: 8px;
@@ -19,6 +26,7 @@
   flex: 1;
   background-color: white;
   border-radius: 8px;
+  overflow-y: scroll;
 }
 
 .repo {
@@ -59,6 +67,7 @@
   /* width: 0; */
   display: none;
   position: relative;
+  overflow-y: scroll;
 }
 
 .issue-list.repo-selected {
