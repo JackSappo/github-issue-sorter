@@ -7,7 +7,6 @@ export const getRepos = (ghToken) => dispatch => {
   }
 
   return Promise.all([ghClient.getRepos(), ghClient.getUser()])
-  // return ghClient.getRepos()
     .then(([repoRes, userRes]) => {
       console.log('~= REPORES IS', repoRes)
       console.log('~= USERRES IS', userRes)

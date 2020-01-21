@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
-export function Issue (props) {
+import { sortIssues } from '../actions/issues';
+
+function Issue (props) {
   return (
     <div className="issue">
       <div className="issue-sorter">
@@ -26,3 +29,9 @@ export function Issue (props) {
     </div>
   )
 }
+
+const mapDispatchToProps = dispatch => ({
+  sortIssues: (...args) => dispatch(sortIssues(...args))
+})
+
+export default connect(null, mapDispatchToProps)(Issue)

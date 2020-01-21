@@ -146,11 +146,11 @@
 }
 
 .issue > .issue-sorter > div:nth-child(1) {
-  transform: translateY(3px);
+  transform: translateY(2px);
 }
 
 .issue > .issue-sorter > div:nth-child(2) {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .issue > .issue-avatar {

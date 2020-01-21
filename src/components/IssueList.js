@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { Issue } from './Issue';
+import Issue from './Issue';
 import IssueCloser from './IssueCloser';
 
 export function IssueList (props) {
@@ -13,7 +13,7 @@ export function IssueList (props) {
       {/* <IssueCloser /> */}
       {
         props.issues.length
-          ? props.issues.map((issue, i) => <Issue issue={issue} key={i}/>)
+          ? props.issues.map((issue, i) => <Issue issue={issue} key={i} idx={i}/>)
           : <div>No issues found!</div>
       }
     </div>
