@@ -137,10 +137,20 @@
   border-bottom: 1px solid #aaa;
 }
 
-.issue > .issue-dragger {
+.issue > .issue-sorter {
+  display: flex;
+  flex-direction: column;
   margin: auto 0px;
   padding: 0 8px;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+.issue > .issue-sorter > div:nth-child(1) {
+  transform: translateY(3px);
+}
+
+.issue > .issue-sorter > div:nth-child(2) {
+  transform: translateY(-3px);
 }
 
 .issue > .issue-avatar {

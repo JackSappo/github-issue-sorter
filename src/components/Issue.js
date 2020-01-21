@@ -3,8 +3,13 @@ import React from 'react';
 export function Issue (props) {
   return (
     <div className="issue">
-      <div className="issue-dragger">
-        <i className="fas fa-grip-horizontal"></i>
+      <div className="issue-sorter">
+        <div>
+          <i className="fas fa-caret-up"></i>
+        </div>
+        <div>
+          <i className="fas fa-caret-down"></i>
+        </div>
       </div>
       <div className="issue-avatar">
         <img src={props.issue.avatarUrl} alt="User Avatar"/>
