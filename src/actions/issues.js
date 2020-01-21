@@ -11,17 +11,13 @@ export const getIssues = (user, repo) => dispatch => {
     })
  }
 
-export const sortIssues = (issues, swapIdx1, swapIdx2) => dispatch => {
-  const newIssues = [
-    ...issues.slice(0, swapIdx1),
-    issues[swapIdx2],
-    issues[swapIdx1],
-    ...issues.slice(swapIdx2 + 1)
-  ]
-
+export const sortIssues = (swapIdx1, swapIdx2) => dispatch => {
   dispatch({
     type: 'SORT_ISSUES',
-    payload: newIssues
+    payload: {
+      swapIdx1,
+      swapIdx2
+    }
   })
 }
  

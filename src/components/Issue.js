@@ -4,14 +4,24 @@ import { connect } from 'react-redux'
 import { sortIssues } from '../actions/issues';
 
 function Issue (props) {
+  function promote() {
+    const { sortIssues, idx } = props
+    sortIssues(idx, idx - 1)
+  }
+
+  function demote() {
+    const { sortIssues, idx } = props
+    sortIssues(idx, idx + 1)
+  }
+
   return (
     <div className="issue">
       <div className="issue-sorter">
         <div>
-          <i className="fas fa-caret-up"></i>
+          <i className="fas fa-caret-up" onClick={promote}></i>
         </div>
         <div>
-          <i className="fas fa-caret-down"></i>
+          <i className="fas fa-caret-down" onClick={demote}></i>
         </div>
       </div>
       <div className="issue-avatar">
