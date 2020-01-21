@@ -5,12 +5,20 @@ export default (state = [], action) => {
     case 'SORT_ISSUES':
       const { swapIdx1, swapIdx2 } = action.payload
 
-      return [
-        ...state.slice(0, swapIdx1),
-        state[swapIdx2],
-        state[swapIdx1],
-        ...state.slice(swapIdx2 + 1)
+      const lowIdx = Math.min(swapIdx1, swapIdx2)
+      const highIdx = Math.max(swapIdx1, swapIdx2)
+
+      const result = [
+        ...state.slice(0, lowIdx),
+        state[highIdx],
+        state[lowIdx],
+        ...state.slice(highIdx + 1)
       ]
+
+      console.log('~= RESULT IS', result)
+
+      return result;
+
     default:
       return state;
   }

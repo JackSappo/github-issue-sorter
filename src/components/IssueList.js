@@ -13,7 +13,7 @@ export function IssueList (props) {
       {/* <IssueCloser /> */}
       {
         props.issues.length
-          ? props.issues.map((issue, i) => <Issue issue={issue} key={i} idx={i}/>)
+          ? props.issues.map((issue, i) => <Issue issue={issue} key={i} idx={i} issueCount={props.issues.length}/>)
           : <div>No issues found!</div>
       }
     </div>

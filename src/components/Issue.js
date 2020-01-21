@@ -14,14 +14,17 @@ function Issue (props) {
     sortIssues(idx, idx + 1)
   }
 
+  const isTopIssue = props.idx === 0;
+  const isBottomIssue = props.idx === props.issueCount - 1;
+
   return (
     <div className="issue">
       <div className="issue-sorter">
         <div>
-          <i className="fas fa-caret-up" onClick={promote}></i>
+          { !isTopIssue ? <i className="fas fa-caret-up" onClick={promote} /> : null }
         </div>
         <div>
-          <i className="fas fa-caret-down" onClick={demote}></i>
+          { !isBottomIssue ? <i className="fas fa-caret-down" onClick={demote}></i> : null }
         </div>
       </div>
       <div className="issue-avatar">
