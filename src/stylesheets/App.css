@@ -6,7 +6,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  bottom: 20px;
+  bottom: 52px;
   left: 20px;
 }
 
@@ -53,8 +53,12 @@
   /* background-color: #dedede; */
   flex: 1;
   background-color: white;
-  /* border-radius: 8px; */
+  border-radius: 0 0 8px 8px;
   overflow-y: scroll;
+}
+
+.repo-list.repo-selected {
+  border-top-right-radius: 8px;
 }
 
 .repo {
