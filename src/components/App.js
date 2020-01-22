@@ -4,11 +4,16 @@ import cx from 'classnames';
 
 import '../stylesheets/App.css';
 import { getIssues } from '../actions/issues';
+import { updateBrowserDimensions } from '../actions/browser';
 import Header from './Header';
 import { RepoList } from './RepoList'
 import { IssueList } from './IssueList'
 
 class App extends Component {
+  componentDidMount() {
+    window.addEventListener('resize', this.trackBrowserWidth);
+  }
+
   componentDidUpdate(prevProps) {
     const repoChanged = prevProps.activeRepo !== this.props.activeRepo
     const noKnownIssues = !this.props.issues[this.props.activeRepo]
@@ -18,7 +23,16 @@ class App extends Component {
     }
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.trackBrowserWidth);
+  }
+  
+  trackBrowserWidth = () => {
+    this.props.updateBrowserDimensions(window.innerHeight, window.innerWidth)
+  }
+
   render() {
+    const mainContainerClass = cx('main-container')
     const reposClass = cx('repo-list', {
       'repo-selected': !!this.props.activeRepo
     })
@@ -27,7 +41,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <div className="main-container">
+        <div className={mainContainerClass}>
           <div className={reposClass}>
             {
               this.props.repos.length
@@ -52,7 +66,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   // getRepos: () => dispatch(getRepos()),
-  getIssues: (...args) => dispatch(getIssues(...args))
+  getIssues: (...args) => dispatch(getIssues(...args)),
+  updateBrowserDimensions: (...args) => dispatch(updateBrowserDimensions(...args))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
