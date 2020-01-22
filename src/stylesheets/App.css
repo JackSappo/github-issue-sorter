@@ -19,17 +19,14 @@
   padding: 6px;
 }
 
-.header-title {
+.header-title, .header-username {
   margin-right: auto;
   color: white;
-}
-
-.header-username {
-  margin-right: auto;
-  color: white;
+  overflow: hidden;
 }
 
 .repo-fetcher {
+  /* TODO: really shouldn't be float right */
   float: right;
 }
 
@@ -193,3 +190,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Responsive Dsn */
+/* TODO: app should have bottom of 88px */
+
+.main-container.thin .repo.active {
+  position: relative;
+  /* top: 0px; */
+}
+
+.main-container.thin {
+  flex-direction: column;
+}
+

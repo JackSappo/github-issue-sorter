@@ -32,7 +32,10 @@ class App extends Component {
   }
 
   render() {
-    const mainContainerClass = cx('main-container')
+    const { width, height } = this.props.browserDimensions;
+    const mainContainerClass = cx('main-container', {
+      'thin': width < 600 && width/height < 1.5
+    })
     const reposClass = cx('repo-list', {
       'repo-selected': !!this.props.activeRepo
     })
