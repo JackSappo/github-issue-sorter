@@ -27,7 +27,8 @@ export default (state = {}, action) => {
         ...state,
         [activeRepo]: sortedActiveIssues
       };
-
+    case 'GET_REPOS':
+      return {};
     default:
       return state;
   }
