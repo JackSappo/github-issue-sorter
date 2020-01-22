@@ -6,7 +6,8 @@ export const getIssues = (user, repo) => dispatch => {
     .then(res => {
       dispatch({
         type: 'GET_ISSUES',
-        payload: parseIssues(res.data)
+        payload: parseIssues(res.data),
+        activeRepo: repo
       })
     })
  }
