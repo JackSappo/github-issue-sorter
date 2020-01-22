@@ -19,11 +19,11 @@ function Issue (props) {
 
   return (
     <div className="issue">
-      <div className="issue-sorter">
-        <div>
+      <div className="issue-sort-container">
+        <div className="issue-sort promote">
           { !isTopIssue ? <i className="fas fa-caret-up" onClick={promote} /> : null }
         </div>
-        <div>
+        <div className="issue-sort demote">
           { !isBottomIssue ? <i className="fas fa-caret-down" onClick={demote}></i> : null }
         </div>
       </div>

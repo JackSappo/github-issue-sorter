@@ -137,7 +137,7 @@
   border-bottom: 1px solid #aaa;
 }
 
-.issue > .issue-sorter {
+.issue > .issue-sort-container {
   display: flex;
   flex-direction: column;
   margin: auto 0px;
@@ -145,12 +145,16 @@
   font-size: 18px;
 }
 
-.issue > .issue-sorter > div:nth-child(1) {
-  transform: translateY(2px);
+.issue > .issue-sort-container > .issue-sort {
+  height: 21px;
 }
 
-.issue > .issue-sorter > div:nth-child(2) {
-  transform: translateY(-2px);
+.issue > .issue-sort-container > .issue-sort.promote {
+  transform: translateY(3px);
+}
+
+.issue > .issue-sort-container > .issue-sort.demote {
+  transform: translateY(-3px);
 }
 
 .issue > .issue-avatar {
