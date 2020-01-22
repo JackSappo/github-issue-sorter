@@ -17,6 +17,7 @@ function Issue (props) {
 
   const isTopIssue = props.idx === 0;
   const isBottomIssue = props.idx === props.issueCount - 1;
+  const isThin = props.browserSize === 'thin';
 
   return (
     <div className="issue">
@@ -34,10 +35,10 @@ function Issue (props) {
       <div className="issue-title">{props.issue.title}</div>
       <div className="issue-details">
         <div className="issue-detail">
-          <b>Created:</b> {props.issue.created}
+          <b>{isThin? 'C' : 'Created'}:</b> {props.issue.created}
         </div>
         <div className="issue-detail">
-          <b>Last Updated:</b> {props.issue.lastUpdated}
+          <b>{isThin? 'U' : 'Last Updated'}:</b> {props.issue.lastUpdated}
         </div>
       </div>
     </div>
@@ -45,7 +46,8 @@ function Issue (props) {
 }
 
 const mapStateToProps = state => ({
-  activeRepo: state.activeRepo
+  activeRepo: state.activeRepo,
+  browserSize: state.browserSize
 })
 
 const mapDispatchToProps = dispatch => ({

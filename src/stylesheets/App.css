@@ -145,6 +145,9 @@
 .issue > .issue-sort-container > .issue-sort {
   height: 21px;
 }
+.issue > .issue-sort-container > .issue-sort i {
+  cursor: pointer;
+}
 
 .issue > .issue-sort-container > .issue-sort.promote {
   transform: translateY(3px);
@@ -179,6 +182,7 @@
   font-size: 12px;
   padding-right: 10px;
   width: 200px;
+  min-width: 200px;
 }
 
 .issue .issue-detail.title {
@@ -213,5 +217,7 @@
 
 .app.thin .issue-details {
   margin-right: 0px;
+  width: 100px;
+  min-width: 100px;
 }
 
