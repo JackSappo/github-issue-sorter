@@ -28,6 +28,7 @@ class GitHubClient {
   
   getUser = () => this.session.get('/user')
   getRepos = () => this.session.get('/user/repos');
+  // TODO: Handle when repo is undefined (which happens when you close one)
   getIssues = (user, repo) => this.session.get(`/repos/${user}/${repo}/issues`)
 }
 

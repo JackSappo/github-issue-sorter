@@ -11,10 +11,11 @@ export const getIssues = (user, repo) => dispatch => {
     })
  }
 
-export const sortIssues = (swapIdx1, swapIdx2) => dispatch => {
+export const sortIssues = (activeRepo, swapIdx1, swapIdx2) => dispatch => {
   dispatch({
     type: 'SORT_ISSUES',
     payload: {
+      activeRepo,
       swapIdx1,
       swapIdx2
     }

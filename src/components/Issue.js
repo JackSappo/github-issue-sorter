@@ -10,8 +10,8 @@ function Issue (props) {
   }
 
   function demote() {
-    const { sortIssues, idx } = props
-    sortIssues(idx, idx + 1)
+    const { sortIssues, activeRepo, idx } = props
+    sortIssues(activeRepo, idx, idx + 1)
   }
 
   const isTopIssue = props.idx === 0;
@@ -43,8 +43,12 @@ function Issue (props) {
   )
 }
 
+const mapStateToProps = state => ({
+  activeRepo: state.activeRepo
+})
+
 const mapDispatchToProps = dispatch => ({
   sortIssues: (...args) => dispatch(sortIssues(...args))
 })
 
-export default connect(null, mapDispatchToProps)(Issue)
+export default connect(mapStateToProps, mapDispatchToProps)(Issue)
