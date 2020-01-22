@@ -11,3 +11,8 @@ export const saveState = (state) => {
     localStorage.setItem('state', JSON.stringify(state))
   } catch (e) {}
 }
+
+export default {
+  loadState,
+  saveState
+}

@@ -10,8 +10,10 @@ import { IssueList } from './IssueList'
 
 class App extends Component {
   componentDidUpdate(prevProps) {
-    if (prevProps.activeRepo !== this.props.activeRepo) {
-      console.log('~= REPO ID CHANGED', this.props.userName, this.props.activeRepo)
+    const repoChanged = prevProps.activeRepo !== this.props.activeRepo
+    const noKnownIssues = !this.props.issues[this.props.activeRepo]
+
+    if (repoChanged && noKnownIssues) {
       this.props.getIssues(this.props.userName, this.props.activeRepo)
     }
   }
