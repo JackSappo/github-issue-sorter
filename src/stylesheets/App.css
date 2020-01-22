@@ -192,14 +192,26 @@
 }
 
 /* Responsive Dsn */
-/* TODO: app should have bottom of 88px */
+.app.thin {
+  bottom: 89px;
+}
 
-.main-container.thin .repo.active {
+.app.thin .main-container {
+  flex-direction: column;
+}
+
+.app.thin .repo.active {
   position: relative;
   /* top: 0px; */
 }
 
-.main-container.thin {
-  flex-direction: column;
+.app.thin .issue-list {
+  margin-top: 10px;
+  border-top: 1px solid #aaa;
+  flex: 1;
+}
+
+.app.thin .issue-details {
+  margin-right: 0px;
 }
 

@@ -33,7 +33,7 @@ class App extends Component {
 
   render() {
     const { width, height } = this.props.browserDimensions;
-    const mainContainerClass = cx('main-container', {
+    const appClass = cx('app', {
       'thin': width < 600 && width/height < 1.5
     })
     const reposClass = cx('repo-list', {
@@ -42,9 +42,9 @@ class App extends Component {
     const issues = this.props.issues[this.props.activeRepo] || [];
 
     return (
-      <div className="app">
+      <div className={appClass}>
         <Header />
-        <div className={mainContainerClass}>
+        <div className="main-container">
           <div className={reposClass}>
             {
               this.props.repos.length
