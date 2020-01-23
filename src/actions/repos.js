@@ -6,6 +6,10 @@ export const getRepos = (ghToken) => dispatch => {
     ghClient.setToken(ghToken);
   }
 
+  dispatch({
+    type: 'FETCHING'
+  })
+
   return Promise.all([ghClient.getRepos(), ghClient.getUser()])
     .then(([repoRes, userRes]) => {
       console.log('~= REPORES IS', repoRes)

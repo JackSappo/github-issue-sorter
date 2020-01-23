@@ -33,6 +33,9 @@ class App extends Component {
 
   render() {
     const appClass = cx('app', this.props.browserSize)
+    const mainContainerClass = cx('main-container', {
+      loading: this.props.loading
+    })
     const reposClass = cx('repo-list', {
       'repo-selected': !!this.props.activeRepo
     })
@@ -41,7 +44,8 @@ class App extends Component {
     return (
       <div className={appClass}>
         <Header />
-        <div className="main-container">
+        <div className={mainContainerClass}>
+          <Loader />
           <div className={reposClass}>
             {
               this.props.repos.length
@@ -54,6 +58,14 @@ class App extends Component {
       </div>
     );
   }
+}
+
+function Loader() {
+  return (
+    <div className="blur">
+      <div className="loader" />
+    </div>
+  );
 }
 
 function EmptyList() {
