@@ -2,6 +2,10 @@ import moment from 'moment';
 import ghClient from '../clients/githubClient';
 
 export const getIssues = (user, repo) => dispatch => {
+  dispatch({
+    type: 'FETCHING_ISSUES'
+  })
+
   return ghClient.getIssues(user, repo)
     .then(res => {
       dispatch({

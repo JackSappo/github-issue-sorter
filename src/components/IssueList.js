@@ -2,21 +2,23 @@ import React from 'react';
 import cx from 'classnames';
 
 import Issue from './Issue';
-import IssueCloser from './IssueCloser';
+import { Loader } from './Loader';
 
 export function IssueList (props) {
   const issuesClass = cx('issue-list', {
-    'repo-selected': !!props.active
+    'repo-selected': !!props.active,
+    loading: props.loading
   })
   return (
     <div className={issuesClass}>
-      {/* <IssueCloser /> */}
-      {
-        props.issues.length
-          ? props.issues.map((issue, i) => <Issue issue={issue} key={i} idx={i} issueCount={props.issues.length}/>)
-          : <div>No issues found!</div>
-      }
+      <div className="issue-list-inner">
+        <Loader />
+        {
+          props.issues.length
+            ? props.issues.map((issue, i) => <Issue issue={issue} key={i} idx={i} issueCount={props.issues.length}/>)
+            : <div className="empty-list">No issues found!</div>
+        }
+      </div>
     </div>
-    
   )
 }

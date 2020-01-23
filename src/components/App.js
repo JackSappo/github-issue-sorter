@@ -6,6 +6,7 @@ import '../stylesheets/App.css';
 import { getIssues } from '../actions/issues';
 import { updateBrowserDimensions } from '../actions/browser';
 import Header from './Header';
+import { Loader } from './Loader';
 import { RepoList } from './RepoList'
 import { IssueList } from './IssueList'
 
@@ -34,7 +35,7 @@ class App extends Component {
   render() {
     const appClass = cx('app', this.props.browserSize)
     const mainContainerClass = cx('main-container', {
-      loading: this.props.loading
+      loading: this.props.loadingRepos
     })
     const reposClass = cx('repo-list', {
       'repo-selected': !!this.props.activeRepo
@@ -53,19 +54,11 @@ class App extends Component {
               : <EmptyList />
             }
           </div>
-          <IssueList active={!!this.props.activeRepo} issues={issues} />
+          <IssueList active={!!this.props.activeRepo} issues={issues} loading={this.props.loadingIssues}/>
         </div>
       </div>
     );
   }
-}
-
-function Loader() {
-  return (
-    <div className="blur">
-      <div className="loader" />
-    </div>
-  );
 }
 
 function EmptyList() {

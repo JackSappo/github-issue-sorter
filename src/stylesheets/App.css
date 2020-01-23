@@ -58,6 +58,9 @@
   overflow-y: scroll
 } */
 
+.main-container.loading .issue-list, .issue-list.loading {
+  overflow-y: hidden;
+}
 
 .loading .blur {
   position: absolute;
@@ -164,6 +167,11 @@
   right: 15px;
   cursor: pointer;
   font-size: 28px;
+}
+
+.issue-list-inner {
+  position: relative;
+  height: 100%;
 }
 
 .issue {
