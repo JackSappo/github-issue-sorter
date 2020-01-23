@@ -57,7 +57,12 @@ class App extends Component {
 }
 
 function EmptyList() {
-  return <div>Loading...</div>
+  return (
+    <div className="empty-list">
+      Welcome!<br/>
+      Please enter a GitHub token.
+    </div>
+  );
 }
 
 const mapStateToProps = state => ({
