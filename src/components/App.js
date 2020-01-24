@@ -57,7 +57,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  // getRepos: () => dispatch(getRepos()),
   getIssues: (...args) => dispatch(getIssues(...args)),
   updateBrowserDimensions: (...args) => dispatch(updateBrowserDimensions(...args))
 })

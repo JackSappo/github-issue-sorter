@@ -1,8 +1,3 @@
-// const initialState = {
-//   height: window.innerHeight,
-//   width: window.innerWidth
-// }
-
 export default (state = '', action) => {
   switch (action.type) {
     case 'BROWSER_RESIZE':

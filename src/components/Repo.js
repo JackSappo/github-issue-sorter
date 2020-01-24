@@ -19,16 +19,7 @@ function Repo(props) {
         <div className="repo-detail">
           Open Issues: {props.repo.open_issues}
         </div>
-        {/* {isActiveRepo ? <ActiveRepoIndicator /> : null} */}
       </div>
-    </div>
-  )
-}
-
-function ActiveRepoIndicator() {
-  return (
-    <div className="active-repo-indicator">
-      <i className="fas fa-caret-right" />
     </div>
   )
 }
