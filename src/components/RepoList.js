@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 export function RepoList(props) {
   const reposClass = cx('repo-list', {
-    'repo-selected': !!props.activeRepo
+    'repo-selected': !!props.active
   })
 
   let content;
