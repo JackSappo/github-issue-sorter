@@ -9,7 +9,7 @@ class GitHubClient {
         Accept: 'application/vnd.github.v3+json',
         Authorization: ''
       }
-    })
+    });
   }
 
   static get instance() {
@@ -20,14 +20,13 @@ class GitHubClient {
     return this.session;
   }
 
-  
   setToken(token) {
     this.session.defaults.headers.Authorization = `token ${token}`;
   }
-  
-  getUser = () => this.session.get('/user')
+
+  getUser = () => this.session.get('/user');
   getRepos = () => this.session.get('/user/repos');
-  getIssues = (user, repo) => this.session.get(`/repos/${user}/${repo}/issues`)
+  getIssues = (user, repo) => this.session.get(`/repos/${user}/${repo}/issues`);
 }
 
 export default GitHubClient.instance;

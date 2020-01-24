@@ -11,7 +11,7 @@ const componentTree = (
   <Provider store={configureStore()}>
     <App />
   </Provider>
-)
+);
 
 ReactDOM.render(componentTree, document.getElementById('root'));
 

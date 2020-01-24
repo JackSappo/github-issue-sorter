@@ -1,37 +1,35 @@
 import React from 'react';
-import Repo from './Repo'
+import Repo from './Repo';
 import cx from 'classnames';
 
 export function RepoList(props) {
   const reposClass = cx('repo-list', {
     'repo-selected': !!props.active
-  })
+  });
 
   let content;
   if (props.errorMessage) {
-    content = <ErrorView errorMessage={props.errorMessage}/>
+    content = <ErrorView errorMessage={props.errorMessage} />;
   } else if (!props.repos) {
-    content = <DefaultView />
+    content = <DefaultView />;
   } else if (!props.repos.length) {
-    content = <EmptyView />
+    content = <EmptyView />;
   } else {
-    content = props.repos.map((repo, i) => <Repo repo={repo} key={i}/>)
+    content = props.repos.map((repo, i) => <Repo repo={repo} key={i} />);
   }
-  
+
   return (
     <div className={reposClass}>
-      <div className="repo-list-inner">
-        {content}
-      </div>
+      <div className="repo-list-inner">{content}</div>
     </div>
-  )
+  );
 }
-
 
 function DefaultView() {
   return (
     <div className="default-view">
-      Welcome!<br/>
+      Welcome!
+      <br />
       Please enter a GitHub token.
     </div>
   );
@@ -39,16 +37,15 @@ function DefaultView() {
 
 function EmptyView() {
   return (
-    <div className="empty-view">
-      No repos found for this GitHub token.
-    </div>
+    <div className="empty-view">No repos found for this GitHub token.</div>
   );
 }
 
 function ErrorView(props) {
   return (
     <div className="error-view">
-      Hit error while fetching repos:<br />
+      Hit error while fetching repos:
+      <br />
       <i>"{props.errorMessage}"</i>
     </div>
   );

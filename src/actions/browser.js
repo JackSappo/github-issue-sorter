@@ -5,5 +5,5 @@ export const updateBrowserDimensions = (height, width) => dispatch => {
       height,
       width
     }
-  })
-}
+  });
+};

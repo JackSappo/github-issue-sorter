@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import browserSize from './browser'
+import browserSize from './browser';
 import { issues, errorIssues, loadingIssues } from './issues';
 import { repos, errorRepos, loadingRepos, activeRepo } from './repos';
-import userName from './userName'
+import userName from './userName';
 
 export default combineReducers({
   activeRepo,
@@ -14,4 +14,4 @@ export default combineReducers({
   loadingRepos,
   repos,
   userName
-})
+});
