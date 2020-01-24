@@ -17,8 +17,6 @@ class Header extends Component {
   }
 
   getRepos = () => {
-    // TODO: does nothing?
-    localStorage.removeItem('state')
     this.props.getRepos(this.state.token);
   }
   

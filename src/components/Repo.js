@@ -9,7 +9,6 @@ function Repo(props) {
     active: isActiveRepo
   })
   const onClick = () => { props.setActiveRepo(isActiveRepo ? '' : props.repo.name) }
-  // TODO: Some indicator that a repo won't work. Why is bootcamp prep deprecated gone but others aren't?
 
   return (
     <div className={repoClass} onClick={onClick}>
