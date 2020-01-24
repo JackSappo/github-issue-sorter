@@ -1,68 +1,44 @@
+# Genbank Database Parser
+
+## Purpose
+This app serves to allow a user to access their available repos, and for each, access and sort the repo's issues how they'd like.
+
+## Getting Started
+1. Clone this repo
+2. Run `npm install`
+3. Run `npm start`
+4. Get a GitHub Personal Access Token for use with the app: https://github.com/settings/tokens/new
+
+## Component Map
+```
+App
+|_Header
+|_Loader
+|_RepoList
+| |_Repo
+|
+|_IssueList
+  |_Issue
+  |_Loader
+```
+
+## Design Decisions
+### Visual
+I went with a very simplistic design. It is a single-column design when only viewing repos, and becomes two columns when the issue list is opened.
+### State
+The app uses Redux, and as such each individual component is able to directly access the store for any relevant props or actions.
+### Caching
+Redux offers a very handy subscribe method, allowing me to serialize state and persist it in localStorage on change.
+### Error Handling
+For the most part, errors are limited to fetching repos and fetching issues, and are handled and rendered accordingly.
+
+## Wishlist
+* Pagination: A user could realistically have thousands of issues (or repos), so it would be beneficial to paginate these.
+* Alternate caching methods: While persisting state to localStorage is extremely convenient, with a high enough repo/issue count this will quickly become a gigantic stringified object. I would want to investigate using indexDB or chrome storage for this use case.
+* Actual persistence: Of course, persisting this issue ordering to the Github API would be very convenient. Not only for the sake of permanence, but the current method is also very vulnerable to data drift, if another user made any changes.
+* SCSS preprocessor: CSS quickly got out of hand, and SCSS would greatly clarify what the stylesheets achieve.
+* Sorting UX: Would be fun to implement a UX where the user is able to drag each item to its destination, rather than clicking arrows.
+* Single-column design: General improvements
+* Issue search functionality
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
