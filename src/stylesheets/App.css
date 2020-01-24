@@ -198,7 +198,8 @@
   padding: 0 8px;
 }
 
-.issue > .issue-sort-container > .issue-sort:hover {
+.issue > .issue-sort-container > .issue-sort.promote:hover,
+.issue > .issue-sort-container > .issue-sort.demote:hover {
   background-color: #7cb3ff;
   cursor: pointer;
 }

@@ -1,17 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import cx from 'classnames';
 
 import { sortIssues } from '../actions/issues';
 
 function Issue (props) {
   function promote() {
+    if (isTopIssue) return;
+
     const { sortIssues, activeRepo, idx } = props
     sortIssues(activeRepo, idx, idx - 1)
   }
 
   function demote() {
+    if (isBottomIssue) return;
+
     const { sortIssues, activeRepo, idx } = props
-    console.log('~= SENDING ACTIVEREPO', activeRepo)
     sortIssues(activeRepo, idx, idx + 1)
   }
 
@@ -19,13 +23,16 @@ function Issue (props) {
   const isBottomIssue = props.idx === props.issueCount - 1;
   const isThin = props.browserSize === 'thin';
 
+  const promoteClass = cx('issue-sort', { promote: !isTopIssue })
+  const demoteClass = cx('issue-sort', { demote: !isBottomIssue })
+
   return (
     <div className="issue">
       <div className="issue-sort-container">
-        <div className="issue-sort promote" onClick={promote} >
+        <div className={promoteClass} onClick={promote} >
           { !isTopIssue ? <i className="fas fa-caret-up" /> : null }
         </div>
-        <div className="issue-sort demote" onClick={demote} >
+        <div className={demoteClass} onClick={demote} >
           { !isBottomIssue ? <i className="fas fa-caret-down"></i> : null }
         </div>
       </div>
