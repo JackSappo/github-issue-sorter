@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { GITHUB_KEY } from '../GITHUB_KEY';
 
 class GitHubClient {
   constructor() {
@@ -8,7 +7,7 @@ class GitHubClient {
       timeout: 5000,
       headers: {
         Accept: 'application/vnd.github.v3+json',
-        Authorization: `token ${GITHUB_KEY}`
+        Authorization: ''
       }
     })
   }

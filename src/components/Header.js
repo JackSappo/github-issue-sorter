@@ -33,7 +33,7 @@ class Header extends Component {
         </div>
         <div className="repo-fetcher">
           <input placeholder="Github Token" onChange={this.onChange}/>
-          <button onClick={this.getRepos}>Get My Repos!</button>
+          <button onClick={this.getRepos} disabled={!this.state.token}>Get My Repos!</button>
         </div>
       </div>
     )
