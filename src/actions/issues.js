@@ -35,6 +35,13 @@ export const sortIssues = (activeRepo, swapIdx1, swapIdx2) => dispatch => {
     }
   })
 }
+
+export const clearIssuesError = () => dispatch => {
+  dispatch({
+    type: 'ISSUES_ERR',
+    payload: ''
+  })
+}
  
 function parseIssues(issueData) {
    return issueData.map(issue => ({

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import cx from 'classnames';
 
 import '../stylesheets/App.css';
-import { getIssues } from '../actions/issues';
+import { getIssues, clearIssuesError } from '../actions/issues';
 import { updateBrowserDimensions } from '../actions/browser';
 import Header from './Header';
 import { Loader } from './Loader';
@@ -21,6 +21,8 @@ class App extends Component {
 
     if (repoChanged && noKnownIssues) {
       this.props.getIssues(this.props.userName, this.props.activeRepo)
+    } else if (repoChanged) {
+      this.props.clearIssuesError();
     }
   }
 
@@ -58,6 +60,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getIssues: (...args) => dispatch(getIssues(...args)),
+  clearIssuesError: () => dispatch(clearIssuesError()),
   updateBrowserDimensions: (...args) => dispatch(updateBrowserDimensions(...args))
 })
 
