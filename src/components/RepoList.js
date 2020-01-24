@@ -30,7 +30,7 @@ export function RepoList(props) {
 
 function DefaultView() {
   return (
-    <div className="empty-list">
+    <div className="default-view">
       Welcome!<br/>
       Please enter a GitHub token.
     </div>
@@ -39,7 +39,7 @@ function DefaultView() {
 
 function EmptyView() {
   return (
-    <div className="empty-list">
+    <div className="empty-view">
       No repos found for this GitHub token.
     </div>
   );
@@ -47,7 +47,7 @@ function EmptyView() {
 
 function ErrorView(props) {
   return (
-    <div className="empty-list">
+    <div className="error-view">
       Hit error while fetching repos:<br />
       <i>"{props.errorMessage}"</i>
     </div>

@@ -37,7 +37,7 @@
   border-radius: 0 0 8px 8px;
 }
 
-.empty-list {
+.default-view, .empty-view, .error-view {
   position: relative;
   top: 45%;
   text-align: center;

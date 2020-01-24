@@ -31,7 +31,7 @@ export function IssueList (props) {
 
 export function EmptyView() {
   return (
-    <div className="empty-list">
+    <div className="empty-view">
       No issues found for this repo.
     </div>
   );
@@ -39,7 +39,7 @@ export function EmptyView() {
 
 export function ErrorView(props) {
   return (
-    <div className="empty-list">
+    <div className="error-view">
       Hit error while fetching issues:<br />
       <i>"{props.errorMessage}"</i>
     </div>
