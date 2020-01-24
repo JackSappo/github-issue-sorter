@@ -3,7 +3,7 @@ import ghClient from '../clients/githubClient';
 
 export const getIssues = (user, repo) => dispatch => {
   dispatch({
-    type: 'FETCHING_ISSUES'
+    type: 'ISSUES_LOADING'
   })
 
   return ghClient.getIssues(user, repo)

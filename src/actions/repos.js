@@ -6,7 +6,7 @@ export const getRepos = (ghToken) => dispatch => {
   }
 
   dispatch({
-    type: 'FETCHING_REPOS'
+    type: 'REPOS_LOADING'
   })
 
   return Promise.all([ghClient.getRepos(), ghClient.getUser()])

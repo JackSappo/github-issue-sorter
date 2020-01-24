@@ -1,4 +1,4 @@
-export default (state = {}, action) => {
+export function issues (state = {}, action) {
   switch (action.type) {
     case 'GET_ISSUES':
       return {
@@ -25,6 +25,28 @@ export default (state = {}, action) => {
       };
     case 'GET_REPOS':
       return {};
+    default:
+      return state;
+  }
+}
+
+export function loadingIssues (state = false, action) {
+  switch (action.type) {
+    case 'ISSUES_LOADING':
+      return true;
+    case 'ISSUES_LOADED':
+      return false;
+    default:
+      return state;
+  }
+}
+
+export function errorIssues (state = '', action) {
+  switch (action.type) {
+    case 'ISSUE_ERR':
+      return action.payload;
+    case 'GET_ISSUES':
+      return '';
     default:
       return state;
   }
