@@ -1,6 +1,6 @@
 export function issues (state = {}, action) {
   switch (action.type) {
-    case 'GET_ISSUES':
+    case 'ISSUES_SUCCESS':
       return {
         ...state,
         [action.activeRepo]: action.payload
@@ -23,7 +23,7 @@ export function issues (state = {}, action) {
         ...state,
         [activeRepo]: sortedActiveIssues
       };
-    case 'GET_REPOS':
+    case 'REPOS_SUCCESS':
       return {};
     default:
       return state;
@@ -43,9 +43,9 @@ export function loadingIssues (state = false, action) {
 
 export function errorIssues (state = '', action) {
   switch (action.type) {
-    case 'ISSUE_ERR':
+    case 'ISSUES_ERR':
       return action.payload;
-    case 'GET_ISSUES':
+    case 'ISSUES_SUCCESS':
       return '';
     default:
       return state;

@@ -12,14 +12,14 @@ export const getRepos = (ghToken) => dispatch => {
   return Promise.all([ghClient.getRepos(), ghClient.getUser()])
     .then(([repoRes, userRes]) => {
       dispatch({
-        type: 'GET_REPOS',
+        type: 'REPOS_SUCCESS',
         payload: repoRes.data,
         userInfo: userRes.data
       })
     })
     .catch(err => {
       dispatch({
-        type: 'REPO_ERR',
+        type: 'REPOS_ERR',
         payload: err.message
       })
     })

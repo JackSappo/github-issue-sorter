@@ -1,6 +1,6 @@
 export function repos (state = null, action) {
   switch (action.type) {
-    case 'GET_REPOS':
+    case 'REPOS_SUCCESS':
       return action.payload
     default:
       return state;
@@ -20,9 +20,9 @@ export function loadingRepos (state = false, action) {
 
 export function errorRepos (state = '', action) {
   switch (action.type) {
-    case 'GET_REPOS':
+    case 'REPOS_SUCCESS':
       return '';
-    case 'REPO_ERR':
+    case 'REPOS_ERR':
       return action.payload;
     default:
       return state;

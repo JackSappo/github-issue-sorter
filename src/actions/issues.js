@@ -9,14 +9,14 @@ export const getIssues = (user, repo) => dispatch => {
   return ghClient.getIssues(user, repo)
     .then(res => {
       dispatch({
-        type: 'GET_ISSUES',
+        type: 'ISSUES_SUCCESS',
         payload: parseIssues(res.data),
         activeRepo: repo
       })
     })
     .catch(err => {
       dispatch({
-        type: 'ISSUE_ERR',
+        type: 'ISSUES_ERR',
         payload: err.message
       })
     })
