@@ -22,11 +22,11 @@ function Issue (props) {
   return (
     <div className="issue">
       <div className="issue-sort-container">
-        <div className="issue-sort promote">
-          { !isTopIssue ? <i className="fas fa-caret-up" onClick={promote} /> : null }
+        <div className="issue-sort promote" onClick={promote} >
+          { !isTopIssue ? <i className="fas fa-caret-up" /> : null }
         </div>
-        <div className="issue-sort demote">
-          { !isBottomIssue ? <i className="fas fa-caret-down" onClick={demote}></i> : null }
+        <div className="issue-sort demote" onClick={demote} >
+          { !isBottomIssue ? <i className="fas fa-caret-down"></i> : null }
         </div>
       </div>
       <div className="issue-avatar">
