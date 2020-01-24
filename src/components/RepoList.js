@@ -8,7 +8,6 @@ export function RepoList(props) {
   })
 
   let content;
-  console.log('~= REPOS', props.repos)
   if (props.errorMessage) {
     content = <ErrorView errorMessage={props.errorMessage}/>
   } else if (!props.repos) {
