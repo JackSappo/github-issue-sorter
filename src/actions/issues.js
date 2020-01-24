@@ -17,6 +17,9 @@ export const getIssues = (user, repo) => dispatch => {
         activeRepo: repo
       })
     })
+    .finally(() => {
+      dispatch({ type: 'ISSUES_LOADED' })
+    })
  }
 
 export const sortIssues = (activeRepo, swapIdx1, swapIdx2) => dispatch => {

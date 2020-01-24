@@ -20,6 +20,9 @@ export const getRepos = (ghToken) => dispatch => {
         userInfo: userRes.data
       })
     })
+    .finally(() => {
+      dispatch({ type: 'REPOS_LOADED' })
+    })
  }
 
  export const setActiveRepo = (repoName) => dispatch => {
