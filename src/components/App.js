@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps) {
     const repoChanged = prevProps.activeRepo !== this.props.activeRepo
-    const noKnownIssues = !this.props.issues[this.props.activeRepo]
+    const noKnownIssues = this.props.activeRepo && !this.props.issues[this.props.activeRepo]
 
     if (repoChanged && noKnownIssues) {
       this.props.getIssues(this.props.userName, this.props.activeRepo)
