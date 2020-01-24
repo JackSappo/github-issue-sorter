@@ -44,7 +44,7 @@ class App extends Component {
         <Header />
         <div className={mainContainerClass}>
           { this.props.loadingRepos ? <Loader /> : null }
-          <RepoList active={!!this.props.activeRepo} repos={this.props.repos} />
+          <RepoList active={!!this.props.activeRepo} repos={this.props.repos} errorMessage={this.props.errorRepos}/>
           <IssueList active={!!this.props.activeRepo} issues={issues} loading={this.props.loadingIssues}/>
         </div>
       </div>

@@ -20,6 +20,13 @@ export const getRepos = (ghToken) => dispatch => {
         userInfo: userRes.data
       })
     })
+    .catch(err => {
+      console.log('~= HIT ERR', err.message)
+      dispatch({
+        type: 'REPO_ERR',
+        payload: err.message
+      })
+    })
     .finally(() => {
       dispatch({ type: 'REPOS_LOADED' })
     })

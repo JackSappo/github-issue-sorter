@@ -9,12 +9,12 @@ export function RepoList(props) {
 
   let content;
   console.log('~= REPOS', props.repos)
-  if (!props.repos) {
+  if (props.errorMessage) {
+    content = <ErrorView errorMessage={props.errorMessage}/>
+  } else if (!props.repos) {
     content = <DefaultView />
   } else if (!props.repos.length) {
     content = <EmptyView />
-  } else if (!props.errorMessage) {
-    content = <ErrorView />
   } else {
     content = props.repos.map((repo, i) => <Repo repo={repo} key={i}/>)
   }
@@ -50,7 +50,7 @@ function ErrorView(props) {
   return (
     <div className="empty-list">
       Hit error while fetching repos:<br />
-      {props.errorMessage}
+     <i>"{props.errorMessage}"</i>
     </div>
   );
 }
