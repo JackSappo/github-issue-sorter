@@ -6,8 +6,11 @@ export const getIssues = (user, repo) => dispatch => {
     type: 'FETCHING_ISSUES'
   })
 
+  console.log('~== GETTING ISSUES')
+
   return ghClient.getIssues(user, repo)
     .then(res => {
+      console.log('~== GOT ISSUES')
       dispatch({
         type: 'GET_ISSUES',
         payload: parseIssues(res.data),

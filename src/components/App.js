@@ -46,7 +46,7 @@ class App extends Component {
       <div className={appClass}>
         <Header />
         <div className={mainContainerClass}>
-          <Loader />
+          { this.props.loadingRepos ? <Loader /> : null }
           <div className={reposClass}>
             {
               this.props.repos.length

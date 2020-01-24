@@ -58,11 +58,16 @@
   overflow-y: scroll
 } */
 
+/* .blur {
+  display: none;
+} */
+
 .main-container.loading .issue-list, .issue-list.loading {
   overflow-y: hidden;
 }
 
-.loading .blur {
+.blur {
+  display: block;
   position: absolute;
   top: 0;
   width: 100%;
@@ -71,11 +76,12 @@
   z-index: 30;
   background-color: rgba(0,0,0,0.2);
   border-radius: 0 0 8px 8px;
+  text-align: center;
 }
 
-.loading .loader {
+.loader {
   position: absolute;
-  width: 60%;
+  width: 100%;
   top: 50%;
 }
 

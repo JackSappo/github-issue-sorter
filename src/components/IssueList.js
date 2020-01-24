@@ -12,7 +12,7 @@ export function IssueList (props) {
   return (
     <div className={issuesClass}>
       <div className="issue-list-inner">
-        <Loader />
+        { props.loading ? <Loader /> : null }
         {
           props.issues.length
             ? props.issues.map((issue, i) => <Issue issue={issue} key={i} idx={i} issueCount={props.issues.length}/>)
