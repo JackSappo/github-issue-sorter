@@ -1,8 +1,9 @@
 import React from 'react';
-import Repo from './Repo';
+import { connect } from 'react-redux';
 import cx from 'classnames';
+import Repo from './Repo';
 
-export function RepoList(props) {
+function RepoList(props) {
   const reposClass = cx('repo-list', {
     'repo-selected': !!props.active
   });
@@ -50,3 +51,11 @@ function ErrorView(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  active: !!state.activeRepo,
+  repos: state.repos,
+  errorMessage: state.errorRepos
+});
+
+export default connect(mapStateToProps, null)(RepoList);

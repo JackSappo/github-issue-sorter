@@ -7,8 +7,8 @@ import { getIssues, clearIssuesError } from '../actions/issues';
 import { updateBrowserDimensions } from '../actions/browser';
 import Header from './Header';
 import { Loader } from './Loader';
-import { RepoList } from './RepoList';
-import { IssueList } from './IssueList';
+import RepoList from './RepoList';
+import IssueList from './IssueList';
 
 class App extends Component {
   componentDidMount() {
@@ -47,17 +47,8 @@ class App extends Component {
         <Header />
         <div className={mainContainerClass}>
           {this.props.loadingRepos ? <Loader /> : null}
-          <RepoList
-            active={!!this.props.activeRepo}
-            repos={this.props.repos}
-            errorMessage={this.props.errorRepos}
-          />
-          <IssueList
-            active={!!this.props.activeRepo}
-            issues={issues}
-            loading={this.props.loadingIssues}
-            errorMessage={this.props.errorIssues}
-          />
+          <RepoList />
+          <IssueList issues={issues} />
         </div>
       </div>
     );

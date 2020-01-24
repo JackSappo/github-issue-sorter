@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import cx from 'classnames';
 
 import Issue from './Issue';
 import { Loader } from './Loader';
 
-export function IssueList(props) {
+function IssueList(props) {
   const issuesClass = cx('issue-list', {
     'repo-selected': !!props.active,
     loading: props.loading
@@ -31,11 +32,11 @@ export function IssueList(props) {
   );
 }
 
-export function EmptyView() {
+function EmptyView() {
   return <div className="empty-view">No issues found for this repo.</div>;
 }
 
-export function ErrorView(props) {
+function ErrorView(props) {
   return (
     <div className="error-view">
       Hit error while fetching issues:
@@ -44,3 +45,11 @@ export function ErrorView(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  active: !!state.activeRepo,
+  loading: state.loadingIssues,
+  errorMessage: state.errorIssues
+});
+
+export default connect(mapStateToProps, null)(IssueList);
