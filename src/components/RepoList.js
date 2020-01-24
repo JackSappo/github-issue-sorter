@@ -50,7 +50,7 @@ function ErrorView(props) {
   return (
     <div className="empty-list">
       Hit error while fetching repos:<br />
-     <i>"{props.errorMessage}"</i>
+      <i>"{props.errorMessage}"</i>
     </div>
   );
 }

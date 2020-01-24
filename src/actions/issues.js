@@ -17,6 +17,12 @@ export const getIssues = (user, repo) => dispatch => {
         activeRepo: repo
       })
     })
+    .catch(err => {
+      dispatch({
+        type: 'ISSUE_ERR',
+        payload: err.message
+      })
+    })
     .finally(() => {
       dispatch({ type: 'ISSUES_LOADED' })
     })

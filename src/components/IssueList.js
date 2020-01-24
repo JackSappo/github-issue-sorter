@@ -9,17 +9,39 @@ export function IssueList (props) {
     'repo-selected': !!props.active,
     loading: props.loading
   })
-  
+
+  let content;
+  if (props.errorMessage) {
+    content = <ErrorView errorMessage={props.errorMessage}/>
+  } else if (!props.issues || !props.issues.length) {
+    content = <EmptyView />
+  } else {
+    content = props.issues.map((issue, i) => <Issue issue={issue} key={i} idx={i} issueCount={props.issues.length}/>)
+  }
+
   return (
     <div className={issuesClass}>
       <div className="issue-list-inner">
         { props.loading ? <Loader /> : null }
-        {
-          props.issues.length
-            ? props.issues.map((issue, i) => <Issue issue={issue} key={i} idx={i} issueCount={props.issues.length}/>)
-            : <div className="empty-list">No issues found!</div>
-        }
+        { content }
       </div>
     </div>
   )
+}
+
+export function EmptyView() {
+  return (
+    <div className="empty-list">
+      No issues found for this repo.
+    </div>
+  );
+}
+
+export function ErrorView(props) {
+  return (
+    <div className="empty-list">
+      Hit error while fetching issues:<br />
+      <i>"{props.errorMessage}"</i>
+    </div>
+  );
 }
