@@ -3,8 +3,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers'
 import { loadState, saveState } from './utils/localstorage'
 
-// TODO: initialState not needed?
-export default function configureStore(initialState = {}) {
+export default function configureStore() {
   const persistedState = loadState();
 
   const store = createStore(
@@ -14,7 +13,12 @@ export default function configureStore(initialState = {}) {
   );
 
   store.subscribe(() => {
-    saveState(store.getState());
+    const persistedState = {
+      ...store.getState(),
+      errorIssues: '',
+      errorRepos: ''
+    }
+    saveState(persistedState);
   })
 
   return store;
