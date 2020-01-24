@@ -9,6 +9,7 @@ export function IssueList (props) {
     'repo-selected': !!props.active,
     loading: props.loading
   })
+  
   return (
     <div className={issuesClass}>
       <div className="issue-list-inner">

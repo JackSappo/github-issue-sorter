@@ -37,9 +37,6 @@ class App extends Component {
     const mainContainerClass = cx('main-container', {
       loading: this.props.loadingRepos
     })
-    const reposClass = cx('repo-list', {
-      'repo-selected': !!this.props.activeRepo
-    })
     const issues = this.props.issues[this.props.activeRepo] || [];
 
     return (
@@ -47,27 +44,12 @@ class App extends Component {
         <Header />
         <div className={mainContainerClass}>
           { this.props.loadingRepos ? <Loader /> : null }
-          <div className={reposClass}>
-            {
-              this.props.repos.length
-              ? <RepoList repos={this.props.repos} />
-              : <EmptyList />
-            }
-          </div>
+          <RepoList active={!!this.props.activeRepo} repos={this.props.repos} />
           <IssueList active={!!this.props.activeRepo} issues={issues} loading={this.props.loadingIssues}/>
         </div>
       </div>
     );
   }
-}
-
-function EmptyList() {
-  return (
-    <div className="empty-list">
-      Welcome!<br/>
-      Please enter a GitHub token.
-    </div>
-  );
 }
 
 const mapStateToProps = state => ({
